@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Sorpresa</title>
+<style>
+  body {
+    background: linear-gradient(to right, pink, purple);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+  h1 {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Buraya kalpler animasyonu veya görsel ekleyebilirsiniz */
+    background-image: url('https://i.imgur.com/8GQnGkM.gif'); /* Kalpler animasyonu veya görseli */
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+  }
+  #content {
+    position: relative;
+    z-index: 1;
+  }
+  #question {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+  }
+  .buttons {
+    display: flex;
+    gap: 20px;
+  }
+  button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  #ev {
+    background-color: #4CAF50;
+    color: white;
+  }
+  #hayir {
+    background-color: #f44336;
+    color: white;
+  }
+  /* Evet butonunu büyütmek için */
+  #ev.bigger {
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+  }
+  /* Sürpriz mesajı */
+  #surprise {
+    display: none;
+    margin-top: 40px;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000;
+  }
+</style>
+</head>
+<body>
+
+<h1>🌸🌸🌸</h1>
+<div id="background"></div>
+
+<div id="content">
+  <div id="question">¿Me amas?</div>
+  <div class="buttons">
+    <button id="ev">Sí</button>
+    <button id="hayir">No</button>
+  </div>
+</div>
+
+<div id="surprise">¡Estar contigo es lo mejor! ¡Te amo mucho! ❤️</div>
+
+<script>
+  const evBtn = document.getElementById('ev');
+  const hayirBtn = document.getElementById('hayir');
+  const surprise = document.getElementById('surprise');
+
+  hayirBtn.addEventListener('mouseenter', () => {
+    // "No" butonuna yaklaşınca "Evet" büyür
+    evBtn.classList.add('bigger');
+  });
+
+  evBtn.addEventListener('click', () => {
+    // "Evet" butonuna tıklayınca sürpriz gösterilir
+    document.getElementById('content').style.display = 'none';
+    surprise.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
